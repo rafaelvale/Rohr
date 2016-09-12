@@ -1,6 +1,7 @@
 <application>
   <component name="FileTypeManager" version="16">
     <extensionMap>
+      <mapping pattern="GetConferentes" type="JSON" />
       <mapping pattern="GetItens" type="Native" />
     </extensionMap>
   </component>

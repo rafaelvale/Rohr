@@ -63,4 +63,16 @@
       <option name="ENABLED" value="true" />
     </filter>
   </component>
+  <component name="SvnApplicationSettings">
+    <option name="myCheckoutURLs">
+      <list>
+        <option value="https://github.com/rafaelvale/ColetorInterno" />
+      </list>
+    </option>
+    <option name="myTypedURLs">
+      <list>
+        <option value="https://github.com/rafaelvale/ColetorInterno" />
+      </list>
+    </option>
+  </component>
 </application>

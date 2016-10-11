@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.rohr.coletorinterno.rohr">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo08"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- Splash screen -->
+        <activity
+            android:name=".Splash"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- Tela Login -->
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="rohr.coletorinterno.rohr.com"
+                    android:pathPrefix="/login"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+
+        <!-- Tela Principal -->
+        <activity
+            android:name=".PrincipalActivity"
+            android:label="@string/title_activity_principal"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="rohr.coletorinterno.rohr.com"
+                    android:pathPrefix="/principal"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+
+        <!-- Tela ConfereItens -->
+        <activity
+            android:name=".ConfereItens"
+            android:label="@string/title_activity_confere_itens"
+            android:parentActivityName=".PrincipalActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="rohr.coletorinterno.rohr.com"
+                    android:pathPrefix="/confereitens"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+
+        <!-- Tela AlteraItens -->
+        <activity
+            android:name=".AlteraItem"
+            android:label="@string/title_activity_altera_item"
+            android:theme="@style/AppTheme" />
+
+        <!-- Tela Conferencia -->
+        <activity
+            android:name=".Conferencia"
+            android:label="@string/title_activity_conferencia"
+            android:theme="@style/AppTheme" />
+
+        <!-- Tela SaldoItens -->
+
+        <activity
+            android:name=".DescargaItens"
+            android:label="@string/title_activity_descarga_itens"
+            android:theme="@style/AppTheme" />
+
+        <!-- Tela TransporteVertical -->
+
+        <activity
+            android:name=".TransporteVertical"
+            android:label="@string/title_activity_transporte_vertical"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".IncluirItem"
+            android:label="@string/title_activity_incluir_item"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ConferenciaDescarga"
+            android:label="@string/title_activity_conferencia_descarga"
+            android:theme="@style/AppTheme"></activity>
+    </application>
+
+</manifest>

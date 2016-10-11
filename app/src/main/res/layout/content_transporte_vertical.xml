@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.rohr.coletorinterno.rohr.TransporteVertical">
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:shrinkColumns="*"
+    android:stretchColumns="*"
+    android:background="#ffffff"
+    android:id="@+id/tableLayout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Dados">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/FirstName"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/OS_Placa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Dados">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/PlacaVeiculo"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/OS"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            />
+
+
+    </LinearLayout>
+
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
+
+        <AutoCompleteTextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="Marca"
+            android:id="@+id/atMarcaTv"/>
+        <AutoCompleteTextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="Modelo"
+            android:id="@+id/atModeloTv"/>
+        <AutoCompleteTextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:hint="Série"
+            android:id="@+id/atSerieTv"
+            android:textAlignment="center"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="Horímetro Saída"
+            android:id="@+id/HoriSaida"/>
+
+        <EditText
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:hint="OS de Locação"
+            android:id="@+id/OSLOc"/>
+    </TableRow>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check-List"
+        android:textSize="20dp"
+
+        android:background="@color/colorPrimary"
+        android:id="@+id/txtCheckList"
+        android:gravity="center_horizontal"
+        android:textStyle="bold|italic" />
+
+
+
+</TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout">
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/btnFoto"
+            android:text="@string/foto"
+            android:layout_above="@+id/btnFimQuesti"
+            android:layout_gravity="bottom" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/btnFimQuesti"
+            android:text="Finalizar"
+            />
+
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ListViewCheckList"
+        android:layout_below="@+id/tableLayout"
+        android:layout_above="@+id/linearLayout">
+
+    </ListView>
+
+</RelativeLayout>

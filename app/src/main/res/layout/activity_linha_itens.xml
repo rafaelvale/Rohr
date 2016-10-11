@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="287dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="ForeignKey"
+            android:layout_marginRight="5dp"
+            android:id="@+id/textForeignKey"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/intTotal"
+            android:text="0.00"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_marginLeft="46dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/Quantity"
+            android:text="0.00"
+            android:textColor="@android:color/holo_blue_dark"
+            android:layout_marginLeft="80dp" />
+
+    </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/truck"
+        android:layout_gravity="right"
+        android:background="@android:color/white" />
+
+
+
+</LinearLayout>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.rohr.coletorinterno.rohr.IncluirItem">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Dados">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/NomeConferente"
+            android:text="@string/Conferente"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/FirstName"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/OS_Placa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Dados">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Placa"
+            android:text="@string/Placa"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/PlacaVeiculo"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nroOS"
+            android:text="Numero OS: "
+            android:layout_marginLeft="50dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/OS"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/incluir_items"
+        android:layout_below="@+id/OS_Placa"
+        android:layout_marginTop="100dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/inclui_item"/>
+
+        <AutoCompleteTextView
+            android:id="@+id/item_incluso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:imeOptions="actionNext"
+            android:inputType="textMultiLine|text"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DadosDescarga"
+        android:layout_below="@id/incluir_items"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <EditText
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/descBom"
+            android:inputType="textMultiLine|phone"
+            android:imeOptions="actionNext"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:hint="@string/bom" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/descDanificado"
+            android:inputType="textMultiLine|phone"
+            android:imeOptions="actionNext"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:hint="@string/danificado"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/descLimpeza"
+            android:inputType="textMultiLine|phone"
+            android:imeOptions="actionNext"
+            android:hint="@string/limpeza"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/descInutilizado"
+            android:imeOptions="actionDone"
+            android:inputType="textMultiLine|phone"
+            android:hint="@string/inutilizado"
+
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/Qtdetotal"
+        android:layout_below="@id/DadosDescarga">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/qtdade_item_incluso"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/qtdeTotal"
+            android:text="0.00"
+            />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_altera_item"
+        android:text="Incluir"
+        android:textSize="20sp"
+        android:layout_below="@id/Qtdetotal"
+        android:layout_marginTop="20dp"/>
+
+
+
+
+
+</RelativeLayout>

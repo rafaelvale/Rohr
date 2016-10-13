@@ -15,10 +15,11 @@ import java.io.IOException;
  * Created by rafael.marques on 21/09/2016.
  */
 public class WSGetItensRemessaLocacao {
-    public boolean WSGetItensRemessaLocacao(){
+
+
+    public boolean WSGetItensRemessaLocacao(int WorkOrderId){
         Boolean t = true;
         int IdItem;
-        int WorkOrderId = 0;
         Float QtdeItens;
         Float TotalFaltante;
 
@@ -31,6 +32,8 @@ public class WSGetItensRemessaLocacao {
 
             SoapObject soapObject = new SoapObject(NameSpace, Metodo);
             soapObject.addProperty("WorkOrderId", WorkOrderId);
+
+
             SoapSerializationEnvelope envelope =new SoapSerializationEnvelope(SoapEnvelope.VER11);
             envelope.dotNet = true;
 

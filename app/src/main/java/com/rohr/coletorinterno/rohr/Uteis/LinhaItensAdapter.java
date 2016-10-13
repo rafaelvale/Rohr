@@ -3,6 +3,7 @@ package com.rohr.coletorinterno.rohr.Uteis;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,18 +67,17 @@ public class LinhaItensAdapter extends BaseAdapter{
     public View getView(final int position, View convertView, ViewGroup parent) {
         View viewLinhaItens = layoutInflater.inflate(R.layout.activity_linha_itens, null);
 
-        TextView textForeignKey = (TextView)viewLinhaItens.findViewById(R.id.textForeignKey);
-        TextView intSaldo = (TextView)viewLinhaItens.findViewById(R.id.intTotal);
+        final TextView textForeignKey = (TextView)viewLinhaItens.findViewById(R.id.textForeignKey);
+        final TextView intSaldo = (TextView)viewLinhaItens.findViewById(R.id.intTotal);
         final TextView totalFaltante = (TextView) viewLinhaItens.findViewById(R.id.Quantity);
-        //final TextView amais = (TextView) viewLinhaItens.findViewById(R.id.Quantity2);
-        //Button ConferirItem = (Button)viewLinhaItens.findViewById(R.id.btnConferir);
-
-
-
 
         textForeignKey.setText(String.valueOf(itemRemessaLocacao.get(position).getForeignKey()));
         intSaldo.setText(String.valueOf(itemRemessaLocacao.get(position).getQtdeItens()));
         totalFaltante.setText(String.valueOf(itemRemessaLocacao.get(position).getTotalFaltante()));
+
+        Log.d("Saldo", String.valueOf(textForeignKey));
+        Log.d("ACarregar", String.valueOf(totalFaltante));
+
 
 
         viewLinhaItens.setOnClickListener(new View.OnClickListener() {
@@ -89,29 +89,29 @@ public class LinhaItensAdapter extends BaseAdapter{
 
                 alertDialog.setView(view);
                 TextView foreignKey = (TextView)view.findViewById(R.id.textForeignKey);
-                final TextView intSaldo = (TextView)view.findViewById(R.id.intTotal);
-                final EditText qtdeCarregada = (EditText) view.findViewById(R.id.QtdCarregada);
+                final TextView intSaldoAlert = (TextView) view.findViewById(R.id.intTotal);
+                final EditText qtdeCarregada = (EditText)view.findViewById(R.id.QtdCarregada);
 
                 foreignKey.setText(String.valueOf(itemRemessaLocacao.get(position).getDescription()));
-                intSaldo.setText(String.valueOf(itemRemessaLocacao.get(position).getQtdeItens()));
+
+
+                intSaldoAlert.setText(String.valueOf(intSaldo));
 
                 alertDialog
                         .setCancelable(false)
                         .setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Float Resultado = Float.parseFloat(intSaldo.getText().toString());
-                                Float carregado = Float.parseFloat(qtdeCarregada.getText().toString());
 
+                                Float resultado  = Float.valueOf(String.valueOf(intSaldo));
+                                Float soma = Float.parseFloat(String.valueOf(totalFaltante));
+                                Float carregado = Float.parseFloat(String.valueOf(qtdeCarregada));
 
+                                resultado = resultado - carregado;
+                                soma = soma + carregado;
 
-                                        Resultado = Resultado - carregado;
-
-                                        totalFaltante.setText(String.valueOf(carregado));
-                                        intSaldo.setText(String.valueOf(Resultado));
-
-
-
+                                totalFaltante.setText(String.valueOf(soma));
+                                intSaldo.setText(String.valueOf(resultado));
                             }
                         })
                         .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -122,9 +122,6 @@ public class LinhaItensAdapter extends BaseAdapter{
                         });
                 AlertDialog alertDialogAndroid = alertDialog.create();
                 alertDialogAndroid.show();
-
-
-
             }
         });
 

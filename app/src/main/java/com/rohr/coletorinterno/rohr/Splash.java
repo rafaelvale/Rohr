@@ -19,6 +19,7 @@ public class Splash extends AppCompatActivity {
     private static int SPLASH_TIME_OUT = 3000;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +28,7 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+
                 Intent i = new Intent(Splash.this, LoginActivity.class);
                 startActivity(i);
 

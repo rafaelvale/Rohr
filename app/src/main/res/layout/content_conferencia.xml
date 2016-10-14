@@ -11,4 +11,110 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.rohr.coletorinterno.rohr.Conferencia">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Dados">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/NomeConferente"
+            android:text="@string/Conferente"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/FirstName"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/OS_Placa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Dados">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/PlacaVeiculo"
+            android:text="Placa: "
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Placa"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nroOS"
+            android:text="Numero OS: "
+            android:layout_marginLeft="50dp"
+            android:textStyle="bold"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/OS"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Valores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/OS_Placa">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/carregar"
+            android:text="À CARREGAR"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:layout_marginLeft="140dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/CARREGADO"
+            android:text="Carregado "
+            android:textAllCaps="true"
+            android:layout_marginLeft="30dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Conferencia_itens"
+        android:layout_marginBottom="100dp"
+        android:layout_below="@+id/OS_Placa" />
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtSupervisor"
+            android:hint="Aprovação Supervisor"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/BtnEncerraCarga"
+            android:text="@string/Encerra_OS"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </LinearLayout>
+
+
 </RelativeLayout>

@@ -66,14 +66,8 @@ public class LinhaDescargaAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         View viewDescargaItens = layoutInflater.inflate(R.layout.activity_conferencia_descarga, null);
 
-        TextView textForeignKey = (TextView)viewDescargaItens.findViewById(R.id.textForeignKeyDesc);
-        TextView textDescription = (TextView)viewDescargaItens.findViewById(R.id.textDescriptionDesc);
+        TextView item = (TextView)viewDescargaItens.findViewById(R.id.textItem);
         final TextView intDescarga = (TextView)viewDescargaItens.findViewById(R.id.intDescarga);
-        Button btnFimDescarga = (Button)viewDescargaItens.findViewById(R.id.btnFimDescarga);
-
-
-        textForeignKey.setText(String.valueOf(itemRetornoLocacao.get(position).getForeignKey()));
-        textDescription.setText(String.valueOf(itemRetornoLocacao.get(position).getDescription()));
 
         return viewDescargaItens;
     }

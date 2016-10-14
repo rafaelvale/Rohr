@@ -61,44 +61,42 @@
 
 
 
+    <AutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:id="@+id/lista_itens"
+        android:imeOptions="actionGo"
+        android:gravity="center"
+        android:maxLength="30"
+        android:hint="@string/item_para_descarregar"
+        android:layout_centerHorizontal="true" />
 
-        <AutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:id="@+id/lista_itens"
-            android:maxLines="1"
-            android:lines="1"
-            android:imeOptions="actionNext"
-            android:hint="@string/item_para_descarregar"
-            android:inputType="textMultiLine"
-            android:layout_centerHorizontal="true" />
 <LinearLayout
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/DadosDescarga"
     android:layout_below="@id/lista_itens"
     android:layout_alignParentRight="true"
     android:layout_alignParentEnd="true">
-
     <EditText
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/descBom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/descBom"
         android:inputType="textMultiLine|phone"
         android:imeOptions="actionNext"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:hint="@string/bom" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:hint="@string/bom" />
     <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/descDanificado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/descDanificado"
         android:inputType="textMultiLine|phone"
         android:imeOptions="actionNext"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:hint="@string/danificado"/>
-
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:hint="@string/danificado"/>
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -107,7 +105,7 @@
         android:imeOptions="actionNext"
         android:hint="@string/limpeza"
         android:textAppearance="?android:attr/textAppearanceMedium"
-      />
+        />
 
     <EditText
         android:layout_width="wrap_content"
@@ -116,38 +114,25 @@
         android:imeOptions="actionDone"
         android:inputType="textMultiLine|phone"
         android:hint="@string/inutilizado"
-
         android:textAppearance="?android:attr/textAppearanceMedium"
         />
 
-</LinearLayout>
-
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/DadosDescarga"
-    android:id="@+id/linearLayout2">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/total_descarregado"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/NomeDescarga" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/qtdeDescarga"
-        android:inputType="textMultiLine"
-        android:text="0.0"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-
-        />
-
-
 
 </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/DadosDescarga2"
+        android:layout_below="@id/DadosDescarga"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+
+
+    </LinearLayout>
 
     <Button
         android:layout_width="match_parent"
@@ -157,9 +142,16 @@
         android:onClick="incluiItem"
         android:textColor="@color/colorPrimary"
         android:background="@android:color/transparent"
-        android:layout_below="@+id/linearLayout2"
+        android:layout_below="@+id/DadosDescarga2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lista_descarga"
+        android:layout_below="@+id/btnConfirmaDescarga"
+        android:layout_marginBottom="100dp"/>
 
     <Button
         android:layout_width="match_parent"

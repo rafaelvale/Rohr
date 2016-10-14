@@ -6,8 +6,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.rohr.coletorinterno.rohr.Model.ItemRemessaLocacao;
+import com.rohr.coletorinterno.rohr.Repository.ItensRemessaLocacaoRepository;
+import com.rohr.coletorinterno.rohr.Uteis.LinhaItensAdapter;
+
+import java.io.FileOutputStream;
+import java.util.List;
 
 public class Conferencia extends AppCompatActivity {
+
+    TextView Placa;
+    TextView Os;
+    TextView FirstName;
+    EditText supervisor;
+    Button btnEncerraCarga;
+    ListView linhaItensConferencia;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +36,28 @@ public class Conferencia extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        Placa = (TextView) findViewById(R.id.Placa);
+        Os = (TextView) findViewById(R.id.OS);
+        FirstName = (TextView) findViewById(R.id.FirstName);
+        supervisor = (EditText) findViewById(R.id.txtSupervisor);
+        btnEncerraCarga = (Button) findViewById(R.id.BtnEncerraCarga);
+        linhaItensConferencia = (ListView) findViewById(R.id.Conferencia_itens);
+
+        FirstName.setText("VIRGILIO");
+        Os.setText("24433");
+        Placa.setText("ADE5065");
+
+        ItemRemessaLocacao itemRemessaLocacao = new ItemRemessaLocacao();
+        itemRemessaLocacao.setActivity(Conferencia.this);
+        itemRemessaLocacao.setWorkOrderId(Integer.valueOf("166674"));
+
+        ItensRemessaLocacaoRepository itensRemessaLocacaoRepository = new ItensRemessaLocacaoRepository(Conferencia.this);
+
+        List<ItemRemessaLocacao> listItemRemessa = itensRemessaLocacaoRepository.SelecionaitemRemessa();
+
+        linhaItensConferencia.setAdapter(new LinhaItensAdapter(this, listItemRemessa));
+
     }
 
     @Override

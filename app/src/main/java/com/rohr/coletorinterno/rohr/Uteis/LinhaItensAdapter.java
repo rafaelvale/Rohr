@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.rohr.coletorinterno.rohr.ConfereItens;
+import com.rohr.coletorinterno.rohr.Conferencia;
 import com.rohr.coletorinterno.rohr.DescargaItens;
 import com.rohr.coletorinterno.rohr.Model.ItemRemessaLocacao;
 import com.rohr.coletorinterno.rohr.Model.ItemRetornoLocacao;
@@ -48,6 +49,10 @@ public class LinhaItensAdapter extends BaseAdapter{
         this.itensRemessaLocacaoRepository = new ItensRemessaLocacaoRepository(confereItens);
     }
 
+    public LinhaItensAdapter(Conferencia conferencia, List<ItemRemessaLocacao> listItemRemessa) {
+
+    }
+
     @Override
     public int getCount() {
         return itemRemessaLocacao.size();
@@ -75,11 +80,6 @@ public class LinhaItensAdapter extends BaseAdapter{
         intSaldo.setText(String.valueOf(itemRemessaLocacao.get(position).getQtdeItens()));
         totalFaltante.setText(String.valueOf(itemRemessaLocacao.get(position).getTotalFaltante()));
 
-        Log.d("Saldo", String.valueOf(textForeignKey));
-        Log.d("ACarregar", String.valueOf(totalFaltante));
-
-
-
         viewLinhaItens.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,14 +88,14 @@ public class LinhaItensAdapter extends BaseAdapter{
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(confereItens);
 
                 alertDialog.setView(view);
-                TextView foreignKey = (TextView)view.findViewById(R.id.textForeignKey);
+                final TextView foreignKey = (TextView)view.findViewById(R.id.textForeignKey);
                 final TextView intSaldoAlert = (TextView) view.findViewById(R.id.intTotal);
                 final EditText qtdeCarregada = (EditText)view.findViewById(R.id.QtdCarregada);
 
+
                 foreignKey.setText(String.valueOf(itemRemessaLocacao.get(position).getDescription()));
+                intSaldoAlert.setText(String.valueOf(intSaldo.getText().toString()));
 
-
-                intSaldoAlert.setText(String.valueOf(intSaldo));
 
                 alertDialog
                         .setCancelable(false)
@@ -103,15 +103,19 @@ public class LinhaItensAdapter extends BaseAdapter{
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
-                                Float resultado  = Float.valueOf(String.valueOf(intSaldo));
-                                Float soma = Float.parseFloat(String.valueOf(totalFaltante));
-                                Float carregado = Float.parseFloat(String.valueOf(qtdeCarregada));
+                                Float Soma = Float.parseFloat(totalFaltante.getText().toString());
+                                Float carregado = Float.parseFloat(qtdeCarregada.getText().toString());
+                                Float total = Float.parseFloat(intSaldo.getText().toString());
 
-                                resultado = resultado - carregado;
-                                soma = soma + carregado;
+                                Soma = Soma + carregado;
+                                total = total - carregado;
 
-                                totalFaltante.setText(String.valueOf(soma));
-                                intSaldo.setText(String.valueOf(resultado));
+
+                                totalFaltante.setText(String.valueOf(Soma));
+                                intSaldo.setText(String.valueOf(total));
+
+
+
                             }
                         })
                         .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -120,10 +124,15 @@ public class LinhaItensAdapter extends BaseAdapter{
                                 dialog.cancel();
                             }
                         });
+
+
                 AlertDialog alertDialogAndroid = alertDialog.create();
                 alertDialogAndroid.show();
             }
         });
+
+
+
 
 
         return viewLinhaItens;
